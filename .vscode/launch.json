@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/pravi/Desktop/c++",
-      "program": "c:/Users/pravi/Desktop/c++/build/Debug/outDebug",
+      "cwd": "c:/Users/pravi/Desktop/c++/Recursion",
+      "program": "c:/Users/pravi/Desktop/c++/Recursion/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
