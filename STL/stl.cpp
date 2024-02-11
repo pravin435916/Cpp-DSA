@@ -7,6 +7,7 @@ int main()
     vector<int> v2 = {4,5,6};
     vector<int> v3(8);
     // sort(v1.begin(),v1.end());
+    // sort(arr,arr+n,greater<int>());
     merge(v1.begin(),v1.end(),v2.begin(),v2.end(),v3.begin());
     for (auto x : v3)
     {
