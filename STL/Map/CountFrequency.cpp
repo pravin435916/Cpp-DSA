@@ -11,6 +11,15 @@ int main()
     cin >> str;
     frequencyCount[str]++;
    }
+   auto it = frequencyCount.find("abc");
+   if( it != frequencyCount.end()) {
+    cout << "Present" << endl;
+    frequencyCount.erase(it);
+    cout << "Removed" << endl;
+   }else{
+       cout << "Not Present" << endl;
+   }
+
     for (auto x : frequencyCount)
     {
         cout << x.first << " "<<x.second <<endl;
