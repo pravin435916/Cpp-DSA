@@ -16,8 +16,8 @@ string removeDuplicate(string str) {
     }
 int main()
 {
-    string str = "adfgludfhbedcjbekhascfkhelfglbdvcjbdevjbedbvljewagsluvfgslcvdbcjle svjbeas;ivhipeshi;vheshvulesgpfuq3wfci;edsjvb";
-    sort(str.begin(),str.end());
+    string str = "bbbbfffeeegggaaaa";
+    // sort(str.begin(),str.end());
     string ans = removeDuplicate(str);
     cout << ans;
 
