@@ -48,11 +48,11 @@ struct Node *createNode(int data)
 }
 
 int main()
-{  
-    printf ("Roll no. : 58\n");
-    printf ("Name : Pravin Nandankar\n");
-    printf ("Sem : 3rd\n");
-    printf ("Batch : C4\n");
+{
+    printf("Roll no. : 58\n");
+    printf("Name : Pravin Nandankar\n");
+    printf("Sem : 3rd\n");
+    printf("Batch : C4\n");
     struct Node *root1 = createNode(1);
     root1->left = createNode(2);
     root1->right = createNode(3);
@@ -70,4 +70,3 @@ int main()
 
     return 0;
 }
-
