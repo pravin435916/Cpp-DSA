@@ -1,28 +1,30 @@
 #include <iostream>
 #include <vector>
 #include <stack>
-#include<algorithm>
+
 using namespace std;
-vector<int> help_classmate(vector<int> arr, int n) 
-    {
-        vector<int> ans(5);
-        stack<int> st;
-        st.push(-1);
-        for(int i=n-1;i>=0;i--) {
-            int cur = arr[i];
-            while(st.top() >= cur) {
-                st.pop();
-            }
-            ans[i] = st.top();
-            st.push(cur);
+//this is for heights return not indices
+std::vector<int> nextSmallerLeft(const std::vector<int>& heights, int n) {
+    std::vector<int> nsl(n, -1); // Initialize with -1, meaning no smaller element to the left
+    std::stack<int> s;
+
+    for (int i = 0; i < n; ++i) {
+        while (!s.empty() && heights[s.top()] >= heights[i]) {
+            s.pop();
         }
-       return ans;
-    } 
-int main()
-{
-    vector<int> arr = {4,8,5,2,25};
-    vector<int> anns = help_classmate(arr,5);
-    for(int x : anns) {
+        if (!s.empty()) {
+            nsl[i] = heights[s.top()];
+        }
+        s.push(i);
+    }
+
+    return nsl;
+}
+
+int main() {
+    vector<int> arr = {2, 1, 5, 6, 2, 3};
+    vector<int> anns = nextSmallerLeft(arr, 6);
+    for (int x : anns) {
         cout << x << " ";
     }
     return 0;
