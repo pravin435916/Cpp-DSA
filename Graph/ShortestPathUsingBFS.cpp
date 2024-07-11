@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+// Using BFS if we will use dfs then check for all paths and take minimum distance time complexity high 
+// BFS is Efficient
 class Solution {
   public:
     vector<int> shortestPath(vector<vector<int>>& edges, int N,int M, int src){
