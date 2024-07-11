@@ -1,8 +1,8 @@
 // Input: isConnected = [[1,1,0],[1,1,0],[0,0,1]]
 // Output: 2
 // No of connected component
-#include <bits/stdc++.h>
-using namespace std;
+// #include <bits/stdc++.h>
+// using namespace std;
 class Solution {
 private:
     void dfs(int node, vector<vector<int>>& isConnected, vector<bool>& visited) {
@@ -28,14 +28,3 @@ public:
         return ct;
     }
 };
-int main() {
-    int t;
-    cin >> t;
-    while (t--) {
-        Solution obj;
-        vector<vector<int>> connected = {{1, 1, 0}, {1, 1, 0}, {0, 0, 1}};
-        int res = obj.findCircleNum(connected);
-
-        cout<<res<<endl;
-    }
-}
