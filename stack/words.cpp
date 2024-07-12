@@ -15,12 +15,13 @@ int main()
             str.pop();
         }
     }
-     while(!str.empty()) {
+    while(!str.empty()) {
         v.push_back(str.top());
         str.pop();
     }
     for(string x : v) {
-        cout << x << " ";
+        reverse(x.begin(),x.end());
+        cout<<x<<endl;
     }
     return 0;
 }
