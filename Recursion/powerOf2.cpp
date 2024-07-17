@@ -1,18 +1,20 @@
 #include <iostream>
 using namespace std;
 
-int powerofTwo(int m, int n) {
+int powerof(int m, int n) {
     if(n == 0) {
         return 1;
     }
-    return m * powerofTwo(m,n-1);
+    int f = powerof(m,n-1);
+    return m * f;
 }
 int main()
 {
-    int m =3;
+    int m =2;
     int n =4;
-    int x = powerofTwo(m,n);
+    int x = powerof(m,n);
     cout<< x ;
 
     return 0;
 }
+//searching , sum of array , charcter find , vowels find , 

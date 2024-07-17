@@ -12,6 +12,7 @@ string removeDuplicate(string str) {
     if(ch == ans[0]){
        return ans;
     }
+    cout<<ans<<endl;
     return ch+ans;
     }
 int main()
