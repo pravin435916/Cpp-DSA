@@ -8,10 +8,8 @@ void substring(string str,string ans) {
         cout << ans << endl;
         return;
     } // base case simple
-    char ch = str[0];
-    string ros = str.substr(1);
-    substring(ros,ans);
-    substring(ros,ans+ch);
+    substring(str.substr(1),ans);
+    substring(str.substr(1),ans+str[0]);
     }
 int main()
 {

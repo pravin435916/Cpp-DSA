@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <string>
+#include<iostream>
 using namespace std;
 
 void cointoss(int n,string ans) {
@@ -6,18 +7,8 @@ void cointoss(int n,string ans) {
         cout<<ans<<endl;
         return;
     }
-    char open = '(';
-    char close = ')';
-    int ctopen = count(ans.begin(),ans.end(),'(');
-    int ctclose = count(ans.begin(),ans.end(),')');
-    if(n  > ctopen) {
     cointoss(n-1,ans+'(');
-    ctopen++;
-    }
-    if(ctclose  < ctopen) {
     cointoss(n-1,ans+')');
-    ctclose++;
-    }
 }
 int main()
 {

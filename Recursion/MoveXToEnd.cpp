@@ -6,7 +6,8 @@ using namespace std;
 string movex(string str) {
     if(str.length() == 0) {
         return "";
-    } // base case simple
+    } 
+    // base case simple
     char ch = str[0];
     string ans = movex(str.substr(1));
     if(ch == 'x'){
