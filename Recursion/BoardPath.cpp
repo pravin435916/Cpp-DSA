@@ -7,9 +7,12 @@ void board(int target,string ans,int sum) {
         return;
     }
     if(sum > target) return;
-    board(target,ans+to_string(1),sum+1);
-    board(target,ans+to_string(2),sum+2);
-    board(target,ans+to_string(3),sum+3);
+    for(int i=1;i<=3;i++) {
+    board(target,ans+to_string(i),sum+i);
+    }
+    // board(target,ans+to_string(1),sum+1);
+    // board(target,ans+to_string(2),sum+2);
+    // board(target,ans+to_string(3),sum+3);
 }
 int main()
 {
