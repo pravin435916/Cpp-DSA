@@ -22,7 +22,7 @@ int findLength(vector<int>& nums, int k) {
 int main()
 {
     vector<int> nums = {3, 1, 2, 7, 4, 2, 1, 1, 5};
-    int k = 8;
+    int k = 4;
     int res = findLength(nums,k);
     cout<<res;
     return 0;
