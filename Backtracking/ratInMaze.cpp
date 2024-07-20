@@ -4,7 +4,7 @@ using namespace std;
 
 void printPath(int sr, int sc, int er, int ec, string s) {
     if (sr > er || sc > ec) return;
-    if (sr == er && sc == ec) {
+    if (sr == er && sc == ec) {  //check for target location
         cout << s <<endl;
         return;
     }

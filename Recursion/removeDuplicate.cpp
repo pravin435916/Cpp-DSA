@@ -12,12 +12,12 @@ string removeDuplicate(string str) {
     if(ch == ans[0]){
        return ans;
     }
-    cout<<ans<<endl;
+    // cout << "Returning: " << ch + ans << endl; 
     return ch+ans;
     }
 int main()
 {
-    string str = "bbbbfffeeegggaaaa";
+    string str = "aaabcc";
     // sort(str.begin(),str.end());
     string ans = removeDuplicate(str);
     cout << ans;
