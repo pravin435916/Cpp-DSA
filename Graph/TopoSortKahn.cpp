@@ -1,4 +1,10 @@
-class Solution{	
+#include <iostream>
+#include <list>
+#include <unordered_map>
+#include <queue>
+#include <vector>
+using namespace std;
+class TopoSortKahn{	
     public:
 	vector<int> topoSort(int V, vector<int> adj[]) 
 	{
@@ -33,3 +39,20 @@ class Solution{
         return ans;
 	}
 };
+int main() {
+    int V = 4;
+    vector<int> adj[V] ={{1,2},{1,3},{3,2},{2,4}}
+
+    TopoSortKahn topo;
+    vector<int> result = topo.topoSort(V, adj);
+
+    if (!result.empty()) {
+        cout << "Topological Sort of the given graph: ";
+        for (int node : result) {
+            cout << node << " ";
+        }
+        cout <<endl;
+    }
+
+    return 0;
+}
