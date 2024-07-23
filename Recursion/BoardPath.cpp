@@ -8,7 +8,7 @@ void board(int target,string ans,int sum,int last) {
     }
     if(sum > target) return;
     for(int i=last;i<=5;i++) {
-    board(target,ans+to_string(i),sum+i);
+    board(target,ans+to_string(i),sum+i,last+1);
     }
     // board(target,ans+to_string(1),sum+1);
     // board(target,ans+to_string(2),sum+2);
@@ -16,6 +16,6 @@ void board(int target,string ans,int sum,int last) {
 }
 int main()
 {
-    board(6,"",0,0);
+    board(6,"",0,1);
     return 0;
 }
