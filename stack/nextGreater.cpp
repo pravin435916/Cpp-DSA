@@ -34,7 +34,7 @@ vector<int> NextGreater(vector<int> arr, int n)
         for(int i=n-1;i>=0;i--) { //next
             // for(int i=0;i<n;i++) { // prev
             int cur = arr[i];
-            while(!st.empty() && st.top() <= cur) {
+            while(!st.empty() && st.top() < cur) {
                 st.pop();
             }
             if(!st.empty()) {
@@ -46,9 +46,9 @@ vector<int> NextGreater(vector<int> arr, int n)
     } 
 int main()
 {
-    vector<int> arr = {4,8,5,6,7};
-    vector<int> anns = NextGreater(arr,5);
-    for(int x : anns) {
+    vector<int> arr = {4,12,8,5,5,6,7};
+    vector<int> ans = NextGreater(arr,5);
+    for(int x : ans) {
         cout << x << " ";
     }
     return 0;

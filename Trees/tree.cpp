@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 class Node {
 public:
     int data;
@@ -30,7 +31,7 @@ void postorder(Node* root) {  // left - right - root (LRN)
     if (root == NULL) return;
     postorder(root->left);
     postorder(root->right);
-    std::cout << root->data << " ";
+    cout << root->data << " ";
 }
 
 int main() {

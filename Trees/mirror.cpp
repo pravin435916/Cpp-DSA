@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 class Node {
 public:
     int data;
@@ -19,6 +20,13 @@ void mirror(Node* root) {
     mirror(root->left);
     mirror(root->right);
 }
+int sumOfBinaryTree(Node* root,int curSum) {
+    if(!root) return curSum;
+    curSum+=root->data;
+    curSum= sumOfBinaryTree(root->left,curSum);
+    curSum= sumOfBinaryTree(root->right,curSum);
+    return curSum;
+}
 
 int main() {
     Node* root = new Node(1);
@@ -29,6 +37,6 @@ int main() {
     root->right->left = new Node(3);
     root->right->right = new Node(7);
     mirror(root);
-
+    cout<<sumOfBinaryTree(root,0)<<endl;
     return 0;
 }

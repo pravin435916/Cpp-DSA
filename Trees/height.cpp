@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+using namespace std;
 class Node {
 public:
     int data;
@@ -21,9 +22,32 @@ int height(Node* root) {
     int leftHeight = height(root->left);
     int rightHeight = height(root->right);
 
-    return 1 + std::max(leftHeight, rightHeight);  // Height of the current node is 1 plus the maximum height of its subtrees
+    return 1 + max(leftHeight, rightHeight);  // Height of the current node is 1 plus the maximum height of its subtrees
 }
+int diameter(Node* root) {
+    if (root == NULL) {
+        return 0;
+    }
+    int leftHeight = height(root->left);
+    int rightHeight = height(root->right);  
+    int ld = diameter(root->left);
+    int rd = diameter(root->right);
+    int ans = leftHeight+rightHeight+1;
 
+    return max(ans , max(ld, rd));  // Height of the current node is 1 plus the maximum height of its subtrees
+}
+// int diameterOfBinaryTree(Node* root) {
+//   int diameter=0;
+//   int h = height(root,diameter);
+//   return diameter;
+// }
+//     int height(Node* root,int &diameter) {
+//         if(root == NULL) return -1;
+//         int lh = height(root->left,diameter);
+//         int rh = height(root->right,diameter);
+//         diameter =  max(diameter,2+lh+rh);
+//         return 1+max(lh,rh);
+//     }
 
 int main() {
     Node* root = new Node(1);
@@ -35,7 +59,8 @@ int main() {
     root->right->right = new Node(7);
     root->right->right->right = new Node(8);
     int ht = height(root);
-    std::cout<<ht;
+    std::cout<<ht<<endl;
+    cout<<diameterOfBinaryTree(root);
     // inorder(root);
     // postorder(root);
 
