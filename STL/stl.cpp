@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-    vector<int> v1 = {1,2,3};
+    vector<int> v1 = {1,2,2,3};
     vector<int> v2 = {4,5,6};
     vector<int> v3(8);
     // sort(v1.begin(),v1.end());
@@ -13,5 +13,7 @@ int main()
     {
         cout << x << " ";
     }
+    auto last = unique(v1.begin(), v1.end());
+    cout<<last<<endl;
     return 0;
 }

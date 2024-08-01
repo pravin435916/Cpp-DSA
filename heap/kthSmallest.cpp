@@ -2,7 +2,7 @@
 using namespace std;
 
 class Solution{
-    public
+    public:
     int kthSmallest(int arr[], int n, int k) {
         priority_queue<int> maxHeap;   //maxJHeap  Mean Top Element always gretest
         for (int i = 0; i < n; i++) {
