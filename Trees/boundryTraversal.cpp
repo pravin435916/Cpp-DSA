@@ -64,12 +64,11 @@ int main() {
     root->right->left = new Node(7);
     root->right->right = new Node(8);
     vector<int> ans;
-    if(root == NULL) return ans;
-    ans.push_back(root->data);
-    leftNode(root->left,ans);
-    leafNode(root->left,ans);
-    leafNode(root->right,ans);
-    rightNode(root->right,ans);
+    if(root == NULL) return {};
+    ans.push_back(root->data);  //print root data
+    leftNode(root->left,ans);   //print only leftv node  without root and leaf node
+    leafNode(root,ans);  //print only leaf node
+    rightNode(root->right,ans); //print only right node  without root and leaf node
     display(ans);
     return 0;
 }
