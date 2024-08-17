@@ -3,7 +3,7 @@ using namespace std;
 int countSetBits(int n) {
     int count = 0;
     while (n) {
-        count += n & 1;
+        count += n & 1;  // 1 & 1 -> 1  , 0 & 1 -> 0 
         n >>= 1;
     }
     return count;
