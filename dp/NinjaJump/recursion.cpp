@@ -1,14 +1,14 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-// Question :- Ninja perform 3 task every day and got points for it but condition  ninja cant perfrom same task in consecutive days 
+// Question :- Ninja perform 3 task every day and got points for it but condition  ninja can't perfrom same task in consecutive days
 // Approach :- we have to check for each day and keep track of last day 
 int f(int day,int last, vector<vector<int>> points) {
     if(day ==0) {
         int maxi =0;
         for(int i=0;i<3;i++) {
           if (i != last) {
-            maxi = max(maxi, points[0][i]);  
+            maxi = max(maxi, points[0][i]);
           }
         }
         return maxi;
