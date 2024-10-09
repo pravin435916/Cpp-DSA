@@ -17,7 +17,7 @@ public:
     int countOccuranceOfAnagram(string pat, string txt)
     {
         int n = txt.size();
-        int k = pat.length();
+        int k = pat.length();+
         int ct = 0;
         // Sliding window approach
         for (int i = 0; i <= n - k; ++i) {
