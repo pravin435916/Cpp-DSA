@@ -1,3 +1,7 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
 class Solution {
 public:
     void board(int n, vector<int>& ans, int k, int last, vector<vector<int>>& res) {
@@ -20,3 +24,19 @@ public:
         return res;
     }
 };
+
+int main() {
+    Solution s1;
+    int n = 4, k = 2;  // Default input
+    vector<vector<int>> combinations = s1.combine(n, k);
+
+    // Output the combinations
+    for (const auto& comb : combinations) {
+        for (int num : comb) {
+            cout << num << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
