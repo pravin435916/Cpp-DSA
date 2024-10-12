@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 //write code for combinations
 void board(string s,string ans,int k,int last) {
@@ -13,7 +14,7 @@ void board(string s,string ans,int k,int last) {
 }
 int main()
 {
-    vector<int> arr
-    board("1234","",2,1);
+    vector<int> arr;
+    board("1234","",3,1);
     return 0;
 }
