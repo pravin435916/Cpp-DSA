@@ -17,3 +17,15 @@ int countPairs(vector<int>& arr, int k) {
     }
     return ct;
 }
+int main() {
+    int n, k, result;
+    cin >> n;
+    vector<int> arr(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> arr[i];
+    }
+    cin >> k;
+    result = countPairs(arr, k);
+    cout << "Number of pairs with difference " << k << ": " << result << endl;
+    return 0;
+}
