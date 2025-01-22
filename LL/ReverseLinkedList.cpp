@@ -28,7 +28,16 @@ Node* ReverseLinkedList(Node* cur,Node* prev) {
         cur->next = prev; // Reverse the link
         return ReverseLinkedList(next,cur);
     }
-
+// Node* reverse(Node* head) {
+//         Node *prev = nullptr,*cur = head,*next = nullptr;
+//         while(cur != nullptr) {
+//             next = cur->next;
+//             cur->next = prev;
+//             prev = cur;
+//             cur = next;
+//         }
+//         return prev;
+//     }
 void display(Node* head) {
     Node* temp = head;
     while(temp != NULL) {

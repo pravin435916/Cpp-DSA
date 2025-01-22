@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <unordered_map>
 
@@ -26,6 +27,6 @@ int main() {
     }
     cin >> k;
     result = countPairs(arr, k);
-    cout << "Number of pairs with difference " << k << ": " << result << endl;
+    cout <<  result << endl;
     return 0;
 }

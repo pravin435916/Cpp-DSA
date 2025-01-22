@@ -1,0 +1,1 @@
+{"name":"Local: pairswithDiffK","url":"d:\\C++\\Cpp-DSA\\HashMap\\pairswithDiffK.cpp","tests":[{"id":1735933852085,"input":"5\n1 4 1 4 5 \n3","output":"4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\C++\\Cpp-DSA\\HashMap\\pairswithDiffK.cpp","group":"local","local":true}
