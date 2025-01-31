@@ -5,19 +5,16 @@ using namespace std;
 class Solution {
 public:
     // Recursion for House Robber 1
-    int helper(int i, vector<int> &nums,vector<int> &dp) {
+    int helper(int i, vector<int> &nums) {
         int n = nums.size();
         if (i >= n) return 0;
-        if(dp[i] != -1) return dp[i]; 
-        int take = nums[i] + helper(i + 2, nums,dp);
-        int notTake = helper(i + 1, nums,dp);
-        return dp[i] = max(take, notTake);
+        int take = nums[i] + helper(i + 2, nums);
+        int notTake = helper(i + 1, nums);
+        return max(take, notTake);
     }
 
     int rob(vector<int> &nums) {
-        int n = nums.size();
-        vector<int> dp(n,-1);
-        return helper(0, nums,dp);
+        return helper(0, nums);
     }
 };
 
