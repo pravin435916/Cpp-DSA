@@ -19,3 +19,11 @@ int main()
 
     return 0;
 }
+
+//                  substring("abc", "")
+//                 /                   \
+//  substring("bc", "")           substring("bc", "a")
+//      /        \                   /              \
+// sub("c", "")  sub("c", "b")  sub("c", "a")    sub("c", "ab")
+//  /     \        /     \        /    \           /       \     
+//  ""     "c"   "b"    "bc"   "a"    "ac"        "ab"   "abc"
