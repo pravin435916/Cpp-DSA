@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-
+// Time Complexity :- o(2^n) for each node we r exploring 2 paths
+// Space :- o(n) for recursion stack
 class Solution {
 public:
     // Recursion for House Robber 1

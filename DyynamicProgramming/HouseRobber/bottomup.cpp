@@ -1,40 +1,37 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
 class Solution {
 public:
-    int robHelper(vector<int>& nums) {
+    // Recursion for House Robber 1
+    int helper(int i, vector<int> &nums,vector<int> &dp) {
         int n = nums.size();
-        if (n == 0) return 0;
-        if (n == 1) return nums[0];
+        if (i >= n) return 0;
+        if(dp[i] != -1) return dp[i]; 
+        int take = nums[i] + helper(i + 2, nums,dp);
+        int notTake = helper(i + 1, nums,dp);
+        return dp[i] = max(take, notTake);
+    }
 
-        vector<int> dp(n, 0);
+    int rob(vector<int> &nums) {
+        int n = nums.size();
+        vector<int> dp(n);
         dp[0] = nums[0];
-        dp[1] = max(nums[0], nums[1]);
+        dp[1] = max(nums[0],nums[1]);
 
-        for (int i = 2; i < n; i++) {
-            dp[i] = max(nums[i] + dp[i-2], dp[i-1]);
+        for(int i=2;i<n;i++){
+             int take = nums[i] + dp[i-2];
+             int nottake = dp[i-1];
+             dp[i] = max(take,nottake);
         }
-
         return dp[n-1];
     }
-    int robHelper(vector<int>& nums) {
-        int prev1 = 0, prev2 = 0;
-        for (int i = 0; i < nums.size(); i++) {
-            int curr = max(prev2 + nums[i], prev1);
-            prev2 = prev1;
-            prev1 = curr;
-        }
-        return prev1;
-    }
-    
-    int rob(vector<int>& nums) {
-        int n = nums.size();
-        if (n == 1) return nums[0]; // Edge case: Only one house
-
-        // Case 1: Exclude the first house
-        vector<int> temp1(nums.begin() + 1, nums.end());
-        // Case 2: Exclude the last house
-        vector<int> temp2(nums.begin(), nums.end() - 1);
-
-        // Calculate the max for both cases using the bottom-up DP approach
-        return max(robHelper(temp1), robHelper(temp2));
-    }
 };
+
+int main() {
+    Solution sol;
+    vector<int> nums = {2, 7, 9, 3, 1};
+    cout << "Maximum amount that can be robbed: " << sol.rob(nums) << endl;
+    return 0;
+}
