@@ -9,18 +9,21 @@ class Solution {
         int longestOnes(vector<int>& nums, int k) {
             // approach sliding window
             // jb 0 count bada hoga k size se tbhich window ko aage badhana hai 
-            int left=0, zeroCount=0,maxi = INT_MIN;
-            int n = nums.size();
-    
-            for(int right=0;right<n;right++){
-                if(nums[right] == 0) zeroCount++;
-    
-                if(zeroCount > k) {
-                    if(nums[left] == 0) zeroCount--;
-                    left++;
+            int left = 0, maxLen = 0, zeroCount = 0;
+
+            for (int right = 0; right < nums.size(); right++) {
+                if (nums[right] == 0) zeroCount++;  // Count zeros in window
+        
+                // Shrink window if zero count exceeds k
+                while (zeroCount > k) {
+                    if (nums[left] == 0) zeroCount--;  
+                    left++;  // Move left boundary
                 }
-                maxi = max(maxi,right-left+1);
+        
+                // Update max length
+                maxLen = max(maxLen, right - left + 1);
             }
-            return maxi;
+        
+            return maxLen;
         }
     };

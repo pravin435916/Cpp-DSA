@@ -11,8 +11,8 @@ public:
         while(j<2*n) {  //its circular thats why 
            if(nums[j%n] == 1) curOnes++;
            if( j-i+1 > totalOnes) {
-            curOnes-=nums[i%n];
-            i++;
+             curOnes-=nums[i%n];
+             i++;
            }
            maxCount = max(maxCount,curOnes);
            j++;
