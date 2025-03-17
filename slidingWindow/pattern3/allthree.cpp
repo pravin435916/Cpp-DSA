@@ -23,7 +23,7 @@ class Solution {
                     res += n-right;
                     count[s[left]-'a']--;
                     left++;
-                }
+                }     
             }
             return res;
         }

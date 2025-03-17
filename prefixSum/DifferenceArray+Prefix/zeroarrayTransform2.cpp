@@ -72,7 +72,7 @@ class Solution {
                 // Process start and end of range
                 diff[l] += val;
                 if(r + 1 < n)
-                  diff[r + 1] -= val;
+                  diff[r + 1] -= val; 
             }
             int curSum=0;
             // Check if zero array can be formed

@@ -1,7 +1,8 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
-
+// Input: piles = [3,6,7,11], h = 8
+// Output: 4
 class Solution {
 public:
     bool isPossibleToEat(vector<int>& piles, int mid, int h) {
