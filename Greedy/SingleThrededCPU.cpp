@@ -1,20 +1,13 @@
 // The Single-Threaded CPU problem on LeetCode requires you to simulate the scheduling of tasks by a single-threaded CPU, following these rules:
-
-// The CPU can process only one task at a time.
-
+// The CPU can process only one task at a time
 // If multiple tasks are available, the CPU picks the task with the shortest processing time.
-
 // If two tasks have the same processing time, the CPU picks the task with the smallest index.
-
 // The CPU becomes idle when there are no tasks to execute.
-
 // Tasks are given as (enqueueTime, processingTime).
 
 // Approach:
 // Sort tasks by enqueueTime (so we can process them in order).
-
 // Use a Min-Heap (priority queue) to always pick the shortest available task first.
-
 // Process tasks sequentially, updating the current time.
 
 class Solution {
