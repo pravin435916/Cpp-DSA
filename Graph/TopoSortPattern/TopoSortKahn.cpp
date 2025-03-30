@@ -13,7 +13,7 @@ class TopoSortKahn{
         vector<int> ans;
         //calculate indegree
         for (int u = 0; u < V; ++u) {
-            inDeg[adj[u][1]]++;
+            inDeg[adj[u][1]]++; 
             // for (int v : adj[u]) {
             //     inDeg[v]++;
             // }

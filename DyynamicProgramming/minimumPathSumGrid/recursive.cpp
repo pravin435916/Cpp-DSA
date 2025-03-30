@@ -6,7 +6,7 @@ class Solution {
 public:
     int helper(vector<vector<int>>& grid,int i,int j) {
         if(i == 0 && j == 0) return grid[i][j];
-        if(i<0 || j <0) return INT_MAX;
+        if(i<0 || j < 0) return INT_MAX;
         int left = helper(grid,i,j-1);
         int up = helper(grid,i-1,j);
         return grid[i][j] + min(left, up);
@@ -34,9 +34,10 @@ public:
 int main() {
     Solution sol;
     vector<vector<int>> grid = {
-        {1, 3, 1},
-        {1, 5, 8},
-        {4, 2, 1}
+        {2, 1, 5},
+        {4, 2, 3},
+        {6, 5, 4},
+        {1, 1, 5}
         // if we start from end cell first move left -> left -> up -> up 
         // it recursively chooose minimum path of left and up and add into current cell 
     };
