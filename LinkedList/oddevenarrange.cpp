@@ -27,7 +27,6 @@ void oddEvenArrangement(Node* &head) {
         // No need to rearrange if the list is empty or has only one element
         return;
     }
-
     Node* oddhead = head;
     Node* evnhead = head->next;
     Node* evenptr = evnhead;
@@ -35,11 +34,9 @@ void oddEvenArrangement(Node* &head) {
     while (oddhead != NULL && oddhead->next != NULL) {
         oddhead = oddhead->next->next;
     }
-
     if (oddhead != NULL) {
         oddhead->next = evenptr;
     }
-
     while (evnhead != NULL && evnhead->next != NULL) {
         evnhead = evnhead->next->next;
     }

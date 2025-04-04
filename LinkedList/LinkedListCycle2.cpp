@@ -14,7 +14,5 @@ Node* findFirstNode(Node* head) {
                 return slow;
             }
         }
-        
-        
         return NULL;
-    }
+}
