@@ -1,59 +1,29 @@
-#include <iostream>
-#include <list>
-#include <unordered_map>
-#include <queue>
-#include <vector>
-using namespace std;
-class TopoSortKahn{	
-    public:
-	vector<int> topoSort(int V, vector<int> adj[]) 
-	{
-        queue<int> q;
-        vector<int> inDeg(V, 0);
-        vector<int> ans;
-        //calculate indegree
-        for (int u = 0; u < V; ++u) {
-            inDeg[adj[u][1]]++; 
-            // for (int v : adj[u]) {
-            //     inDeg[v]++;
-            // }
-        }
-        //push 0 indegree 
-        for(int i=0;i<inDeg.size();i++) {
+vector<int> topoSort(int V, vector<vector<int>>& edges) {
+    vector<int> inDeg(V,0);
+    vector<vector<int>> adj(V);
+    for(auto &edge : edges) {
+        int u = edge[0];
+        int v = edge[1];
+        adj[u].push_back(v);
+        inDeg[v]++;
+    }
+    queue<int> q;
+        for(int i=0;i<V;i++) {
             if(inDeg[i] == 0) {
                 q.push(i);
             }
         }
-        //traverse neighbour nodes
+        vector<int> res;
         while(!q.empty()) {
             int node = q.front();
             q.pop();
-            ans.push_back(node);
-            for(int i=0;i<adj[node].size();i++) {
-                int neighbour = adj[node][i];
+            res.push_back(node);
+            for(auto& neighbour : adj[node]) {
                 inDeg[neighbour]--;
                 if(inDeg[neighbour] == 0) {
                     q.push(neighbour);
                 }
             }
         }
-        return ans;
-	}
-};
-int main() {
-    int V = 4;
-    vector<int> adj[V] ={{1,2},{1,3},{3,2},{2,4}};
-
-    TopoSortKahn topogi;
-    vector<int> result = topogi.topoSort(V, adj);
-
-    if (!result.empty()) {
-        cout << "Topological Sort of the given graph: ";
-        for (int node : result) {
-            cout << node << " ";
-        }
-        cout <<endl;
-    }
-
-    return 0;
+        return res;
 }
