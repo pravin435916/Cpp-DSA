@@ -1,69 +1,34 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <utility>
-#include <climits>
-
-using namespace std;
-
-const int INF = INT_MAX;
-
-void dijkstra(int start, const vector<vector<pair<int, int>>> &graph, vector<int> &dist) {
-    int n = graph.size();
-    dist.assign(n, INF);
-    dist[start] = 0;
-
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-    pq.push({0, start});
-
-    while (!pq.empty()) {
-        int u = pq.top().second;
-        int d = pq.top().first;
-        pq.pop();
-
-        if (d != dist[u]) continue;
-
-        for (const auto &edge : graph[u]) {
-            int v = edge.first;
-            int weight = edge.second;
-
-            if (dist[u] + weight < dist[v]) {
-                dist[v] = dist[u] + weight;
-                pq.push({dist[v], v});
-            }
-        }
-    }
-}
-
-int main() {
-    int n, m;
-    cout << "Enter number of vertices and edges: ";
-    cin >> n >> m;
-
-    vector<vector<pair<int, int>>> graph(n);
-    cout << "Enter edges (u v weight):" << endl;
-    for (int i = 0; i < m; ++i) {
-        int u, v, weight;
-        cin >> u >> v >> weight;
-        graph[u].emplace_back(v, weight);
-        graph[v].emplace_back(u, weight); // Comment this line if the graph is directed
-    }
-
-    int start;
-    cout << "Enter the starting vertex: ";
-    cin >> start;
-
-    vector<int> dist;
-    dijkstra(start, graph, dist);
-
-    cout << "Shortest distances from vertex " << start << " are:" << endl;
-    for (int i = 0; i < n; ++i) {
-        if (dist[i] == INF)
-            cout << "INF ";
-        else
-            cout << dist[i] << " ";
-    }
-    cout << endl;
-
-    return 0;
-}
+class Solution {
+    public:
+      typedef pair<int,int> P;
+      vector<int> dijkstra(int V, vector<vector<int>> &edges, int src) {
+          vector<vector<P>> adj(V);
+          for(auto& edge : edges) { // edges[i][0] = u, edges[i][1] = v, edges[i][2] = wt
+              int u = edge[0];
+              int v = edge[1];
+              int wt = edge[2];
+              adj[u].push_back({v,wt});
+              adj[v].push_back({u,wt});
+          }
+          vector<int> dist(V,INT_MAX);
+          priority_queue<P,vector<P>,greater<P>> pq;
+          dist[src] = 0;
+          pq.push({0,src}); // distance , node
+          
+          while(!pq.empty()) {
+              auto p = pq.top();
+              pq.pop();
+              int node = p.second;
+              int dis = p.first;
+              for(auto& it : adj[node]) {
+                  int neighbour = it.first;   // stored in adj list
+                  int wt = it.second;
+                  if(dis + wt < dist[neighbour]) { 
+                      dist[neighbour] = dis + wt;  // update distance
+                      pq.push({dist[neighbour],neighbour});  
+                  }
+              }
+          }
+          return dist;
+      }
+  };
