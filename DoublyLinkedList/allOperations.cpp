@@ -16,9 +16,9 @@ void insertAtHead(Node* &head, int val) { // O(1)
     if (head == NULL) {
         head = new_node;
     } else {
-        new_node->next = head;
-        head->prev = new_node;
-        head = new_node;
+        new_node->next = head;  // link next of new node to head
+        head->prev = new_node;  // link prev of head to new node
+        head = new_node;  // head point to new Node
     }
 }
 void insertAtEnd(Node* &head , int val) {
