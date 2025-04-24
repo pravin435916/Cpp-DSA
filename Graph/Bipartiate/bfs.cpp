@@ -1,3 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+using namespace std;
+
 class Solution {
 public:
     bool bfs(int start,vector<int> &coloured,vector<int> adj[]) {
@@ -28,3 +33,27 @@ public:
 	    return true;
 	}
 };
+
+int main() {
+	int V = 5; // Number of vertices
+	vector<int> adj[V]; // Adjacency list representation of the graph
+
+	// Example edges (you can modify this to test different graphs)
+	adj[0].push_back(1);
+	adj[1].push_back(0);
+	adj[1].push_back(2);
+	adj[2].push_back(1);
+	adj[2].push_back(3);
+	adj[3].push_back(2);
+	adj[3].push_back(4);
+	adj[4].push_back(3);
+
+	Solution s1;
+	if (s1.isBipartite(V, adj)) {
+		cout << "The graph is bipartite." << endl;
+	} else {
+		cout << "The graph is not bipartite." << endl;
+	}
+
+	return 0;
+}
