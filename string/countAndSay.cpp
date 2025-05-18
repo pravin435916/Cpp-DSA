@@ -9,7 +9,7 @@ public:
             if(prev[i] == prev[j]) {
                 j++;
             }else{
-                int len = j-i; // 1 1 1 1 2 2 
+                int len = j-i; // 1 1 1 1 2 2
                 ans += to_string(len);
                 ans += prev[i];
                 i = j;
