@@ -32,6 +32,7 @@ class Solution {
             cur = cur->right;
         }
     }
+    
         vector<Node*> ans;
         ans.push_back(P);
         ans.push_back(S);
