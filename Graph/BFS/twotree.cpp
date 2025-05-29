@@ -1,3 +1,20 @@
+/*
+Approach:
+1. The problem involves two trees (represented by edges1 and edges2) and an integer k.
+2. For each node in the first tree (edges1), we want to count how many nodes are within distance k using BFS.
+3. For the second tree (edges2), for each node, count how many nodes are within distance k-1.
+4. Find the maximum count from the second tree's results.
+5. For each node in the first tree, add this maximum value to its count.
+6. Return the resulting vector.
+
+Step-by-step:
+- Build adjacency lists for both trees.
+- For each node in both trees, use BFS to count nodes within the required distance.
+- For the second tree, keep track of the maximum count.
+- Add this maximum to each node's count from the first tree.
+- Return the final result.
+*/
+
 class Solution {
 public:
    int bfs(int node,unordered_map<int,vector<int>> &adj,int k,int N) {
