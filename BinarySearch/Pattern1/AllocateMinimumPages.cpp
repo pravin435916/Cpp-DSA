@@ -3,18 +3,15 @@ using namespace std;
 class Solution {
   public:
   bool isPossibleToAllocate(vector<int> &arr, int k, int mid) {
-    int studentsRequired = 1;
-    int currentPages = 0;
-
-    for (int pages : arr) {
-        if (pages > mid) return false; 
-        if (currentPages + pages > mid) {
-            studentsRequired++; 
-            currentPages = pages; 
-            if (studentsRequired > k) return false; // Too many students required
-        } else {
-            currentPages += pages; 
+    int student = 1;  // start with first student
+    int sum = 0;
+    for (int x : arr) {
+        sum += x;
+        if(sum > mid) {
+            student++;
+            sum = x;
         }
+        if(student > k) return false;  // early optimization
     }
     return true;
 }

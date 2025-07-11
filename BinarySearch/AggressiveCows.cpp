@@ -22,7 +22,7 @@ class Solution {
                 cow++;
                 lastStall = stalls[i];
             }
-            if(cow == k) return true;
+            if(cow == k) return true; 
         }
         return false;
     }
